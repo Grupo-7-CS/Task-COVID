@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/main"
+        android:icon="@drawable/ic_action_inicio"
+        android:title="@string/inicio"
+        app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/Perfil"
+        android:icon="@drawable/ic_action_perfil"
+        android:title="@string/perfil"
+        app:showAsAction="ifRoom"></item>
+
+    <item android:id="@+id/Tienda" android:title="@string/tienda"></item>
+    <item android:id="@+id/menuAyuda" android:title="@string/menuAyuda"></item>
+
+    <item
+        android:id="@+id/Salir"
+        android:title="@string/Salir"></item>
+</menu>
