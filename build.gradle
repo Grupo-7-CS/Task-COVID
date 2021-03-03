@@ -1,6 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
     repositories {
         google()
         jcenter()
@@ -25,12 +29,6 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
-
-android {
-      lintOptions {
-          abortOnError false
-      }
-  }
 
 allprojects {
     repositories {
