@@ -22,11 +22,6 @@ sonarqube {
     property "sonar.projectKey", "Grupo-7-CS_Task-COVID"
     property "sonar.organization", "grupo-7-cs"
     property "sonar.host.url", "https://sonarcloud.io"
-    android {
-        lintOptions {
-            abortOnError false
-        }
-    }
   }
 }
 
