@@ -45,7 +45,6 @@ die () {
 }
 
 # OS specific support (must be 'true' or 'false').
-chmod +x gradlew
 cygwin=false
 msys=false
 darwin=false
