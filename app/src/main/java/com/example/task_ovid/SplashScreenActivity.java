@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
-
+/*
+Esta clase se encarga de cargar la primera pantalla que se ve al iniciar la app, el logo del equipo
+desarrollador, y de iniciar la Start Activity a los 3 segundos.
+ */
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override

@@ -7,7 +7,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-
+/*
+Esta clase se encarga de mostrar por pantalla los diferentes avatares que podemos usar en la pantalla gestionada por la
+clase PerfilActivity.
+ */
 public class ImageAdapter extends BaseAdapter {
     // Contexto de la aplicación
     private Context mContext;

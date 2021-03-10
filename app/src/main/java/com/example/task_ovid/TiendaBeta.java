@@ -150,7 +150,8 @@ public class TiendaBeta extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Ya tienes una, para que quieres mas", Toast.LENGTH_LONG).show();
         }
     }
-//Para implementar el menu de la app
+
+    //Método que permite abrir(inflar) el menú desplegable de la parte superior
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -158,6 +159,8 @@ public class TiendaBeta extends AppCompatActivity {
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
+
+    //Método que controla la navegación entre páginas usando el menú superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -166,7 +169,6 @@ public class TiendaBeta extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivityIfNeeded(intent, 0);
         }else if (R.id.Perfil==id) {
-
             Intent intent= new Intent(this,PerfilActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivityIfNeeded(intent, 0);

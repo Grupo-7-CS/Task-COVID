@@ -19,7 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-
+/*
+Esta clase se esncarga de mostrar la pantalla principal del juego, mostrar y gestionar la lista de tareas y gestionar los medidores de vida,
+resistencia y experiencia. Además, gestiona el contador de monedas.
+ */
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView lista;
     private ArrayList<String> tareas;
@@ -214,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         this.resistencia = resistencia;
     }
 
-//Para mostrar el menu de opciones
+    //Método que permite abrir(inflar) el menú desplegable de la parte superior
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -222,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
+    //Método que controla la navegación entre páginas usando el menú superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

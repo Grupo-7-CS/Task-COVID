@@ -7,7 +7,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/*
+Esta clase se encarga de cargar la pantalla de inicio y de iniciar la aplicación cuando se pulsa el
+botón de "START"
+ */
 public class StartActivity extends AppCompatActivity {
 
     private ImageButton stbut;
@@ -26,7 +29,8 @@ public class StartActivity extends AppCompatActivity {
         });
     }
 
-    public void Startup(){ // Metodo para que el boton comunique con la otra pantalla
+    // Método usado para que el botón "START" abra la pantalla de carga (Load Screen)
+    public void Startup(){
         Intent intent = new Intent(this,LoadScreenActivity.class);
         startActivity(intent);
     }

@@ -6,7 +6,10 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
+/*
+Esta clase se encarga de realizar la animación de la barra de carga presente en la pantalla
+mostrada por el LoadScreenActivity y de iniciar la main activity cuando la animación termina.
+ */
 public class PBAnimation extends Animation {
 
     private Context context;
@@ -23,6 +26,7 @@ public class PBAnimation extends Animation {
         this.to=to;
     }
 
+    //Método usado para realizar la animación de la barra de carga
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         super.applyTransformation(interpolatedTime, t);
@@ -31,6 +35,7 @@ public class PBAnimation extends Animation {
         tv.setText((int) value+" %");
 
         if (value==to){
+            //Al completarse la animación se abre la MainActivity
             context.startActivity(new Intent(context, MainActivity.class));
         }
     }
