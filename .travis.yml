@@ -1,3 +1,12 @@
+language: java
+dist: xenial
+addons:
+  sonarcloud:
+    organization: "grupo-7-cs"
+    
+script:
+  - sonar-scanner
+
 language: android
 dist: trusty
 before_install:
@@ -31,9 +40,3 @@ android:
     # if you need to run emulator(s) during your tests
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
-addons:
-  sonarcloud:
-    organization: "grupo-7-cs"
-    
-script:
-  - sonar-scanner
