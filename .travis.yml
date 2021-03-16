@@ -31,12 +31,14 @@ android:
     # if you need to run emulator(s) during your tests
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
-addons:
-  sonarcloud:
-    organization: "grupo-7-cs"
     
-script:
-  - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
-  - sonar-scanner
-  - jdk_switcher use openjdk8
+jobs:
+include:
+  - language: java
+    jdk:
+    - openjdk11
+    addons:
+      sonarcloud:
+        organization: "grupo-7-cs"
+    script:
+      - sonar-scanner
