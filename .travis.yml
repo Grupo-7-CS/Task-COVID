@@ -31,3 +31,11 @@ android:
     # if you need to run emulator(s) during your tests
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
+addons:
+  sonarcloud:
+    organization: "grupo-7-cs"
+    token:
+      secure: "$SONAR_TOKEN"
+
+script:
+  - sonar-scanner
