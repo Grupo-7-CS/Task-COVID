@@ -34,8 +34,6 @@ android:
 addons:
   sonarcloud:
     organization: "grupo-7-cs"
-    token:
-      secure: $SONAR_TOKEN
-
+    
 script:
   - sonar-scanner
