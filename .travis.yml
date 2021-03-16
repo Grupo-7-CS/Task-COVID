@@ -32,13 +32,9 @@ android:
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
     
-jobs:
-include:
-  - language: java
-    jdk:
-    - openjdk11
-    addons:
-      sonarcloud:
-        organization: "grupo-7-cs"
-    script:
-      - sonar-scanner
+addons:
+  sonarcloud:
+    organization: "grupo-7-cs"
+    
+script:
+  - sonar-scanner
