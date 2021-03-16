@@ -36,7 +36,7 @@ addons:
     organization: "grupo-7-cs"
     
 script:
-  - jdk_switcher use openjdk11
+  - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
   - sonar-scanner
-  - export JAVA_HOME=$HOME/oraclejdk8
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install oraclejdk8 --target $JAVA_HOME
+  - jdk_switcher use openjdk8
