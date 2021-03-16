@@ -41,4 +41,5 @@ addons:
 script:
   - jdk_switcher use oraclejdk11
   - sonar-scanner
-  - jdk_switcher use oraclejdk8
+  - export JAVA_HOME=$HOME/oraclejdk8
+  - $TRAVIS_BUILD_DIR/install-jdk.sh --install oraclejdk8 --target $JAVA_HOME
