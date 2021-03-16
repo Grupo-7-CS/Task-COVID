@@ -35,7 +35,9 @@ android:
 addons:
   sonarcloud:
     organization: "grupo-7-cs"
-jdk: oraclejdk11
+jdk: 
+  - oraclejdk8
+  - oraclejdk11
 script:
   - export JAVA_HOME=$HOME/oraclejdk11
   - $TRAVIS_BUILD_DIR/install-jdk.sh --install oraclejdk11 --target $JAVA_HOME
