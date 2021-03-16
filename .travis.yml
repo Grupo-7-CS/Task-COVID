@@ -2,6 +2,7 @@ language: android
 dist: trusty
 before_install:
   - yes | sdkmanager "platforms;android-30"
+  - android-wait-for-emulator
 android:
   components:
     # Uncomment the lines below if you want to
