@@ -31,8 +31,6 @@ android:
     # if you need to run emulator(s) during your tests
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
-jdk:
-  - openjdk11
 addons:
   sonarcloud:
     organization: "grupo-7-cs"
