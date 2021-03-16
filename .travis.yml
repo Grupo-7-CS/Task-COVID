@@ -1,5 +1,9 @@
 language: java
 dist: xenial
+sudo: required
+
+jdk:
+  - openjdk11
 addons:
   sonarcloud:
     organization: "grupo-7-cs"
