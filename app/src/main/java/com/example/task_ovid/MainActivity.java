@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.task_ovid.menu.MenuNavigation;
+
 import java.util.ArrayList;
 
 /*
@@ -228,32 +230,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //Método que controla la navegación entre páginas usando el menú superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(R.id.main==id) {
-            Intent intent= new Intent(this,MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivityIfNeeded(intent, 0);
-        }else if (R.id.Perfil==id) {
-            Intent intent= new Intent(this,PerfilActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivityIfNeeded(intent, 0);
-        }else if (R.id.Tienda== id) {
-            Intent intent= new Intent(this,TiendaBeta.class);
-            startActivity(intent);
-        }else if (R.id.menuAyuda == id) {
-            Intent intent= new Intent(this,menuAyuda.class);
-
-            fotoPerfil.setImageResource(R.drawable.avatar2);
-            startActivity(intent);
-        }else if(R.id.Salir==id) {
-
-                finishAffinity();
-
-
-        }
-
-                return super.onOptionsItemSelected(item);
-
+        new MenuNavigation().navigate(item, this);
+        return super.onOptionsItemSelected(item);
     }
 
 
