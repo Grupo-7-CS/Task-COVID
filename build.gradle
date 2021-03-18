@@ -36,3 +36,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task compile{
+    description "Compile and build the proyect"
+    doLast {
+        exec {
+            commandLine "gradle","build"
+        }
+    }
+}
