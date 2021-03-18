@@ -106,12 +106,6 @@ task gitCommit{
         }
     }
 }
-gradle.taskGraph.whenReady { taskGraph ->
-    if(taskGraph.hasTask(':gitCommit')) {
-
-    }
-}
-
 task gitPush {
     description "git push on current branch"
     dependsOn "gitBranch"
