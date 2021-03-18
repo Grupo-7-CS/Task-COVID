@@ -32,9 +32,9 @@ android:
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
     
-addons:
-  sonarcloud:
-    organization: "grupo-7-cs"
+#addons:
+  #sonarcloud:
+    #organization: "grupo-7-cs"
     
-script:
-  - sonar-scanner
+#script:
+  #- sonar-scanner
