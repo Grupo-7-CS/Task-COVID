@@ -77,33 +77,37 @@ task gitAdd {
     }
 }
 import groovy.swing.SwingBuilder
-task gitCommit{
+
+/*
+task gitCommit {
     description "This task do commit all the modified elements with a message that you enter on the dialog"
     doLast {
-        if (System.console() == null) {
-            System.setProperty('java.awt.headless','false')
-            new SwingBuilder().edt{
-                dialog(modal: true, title: 'Enter commit message', alwaysOnTop: true, resizable: false, locationRelativeTo: null, pack: true, show: true){
-                    vbox{
-                        label(text: "Please enter your commit message:")
-                        def input1 = textField()
-                        button(defaultButton: true, test: 'OK', actionPerformed: {
-                            commitMessage = input1.text;
-                            dispose();
-                            exec{
-                                commandLine "git", "commit", "-m", commitMessage
-                            }
-                        })
-                    }
+        System.setProperty('java.awt.headless', 'false')
+        new SwingBuilder().edt {
+            dialog(modal: true, title: 'Enter commit message', alwaysOnTop: true, resizable: false, locationRelativeTo: null, pack: true, show: true) {
+                vbox {
+                    label(text: "Please enter your commit message:")
+                    def input1 = textField()
+                    button(defaultButton: true, test: 'OK', actionPerformed: {
+                        commitMessage = input1.text;
+                        dispose();
+                        exec {
+                            commandLine "git", "commit", "-m", commitMessage
+                        }
+                    })
                 }
             }
-        }else{
-            commitMessage = System.console().readLine("\nPlease enter your commit message: ")
-            dispose();
-            exec{
-                commandLine "git", "commit", "-m", commitMessage
-            }
         }
+    }
+}*/
+
+task gitCommit {
+    description "This task do commit all the modified elements with a message that you enter on the dialog"
+    doLast {
+        exec {
+            commandLine "git", "commit","-m","Test gradle git"
+        }
+
     }
 }
 task gitPush {
