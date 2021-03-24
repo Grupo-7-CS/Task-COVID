@@ -12,29 +12,29 @@ before_script:
   - adb shell input keyevent 82 &
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
-
-    # The BuildTools version used by your project
+    # The BuildTools version
     - build-tools-30.0.2
 
-    # The SDK version used to compile your project
+    # The SDK version
     - android-30
     
-    # Additional components
+    # Componentes adicionales
     - extra-google-m2repository
     - extra-android-m2repository
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
+    # Imágenes de andorid necesarias para hacer los tests
     - extra-android-support
     - sys-img-armeabi-v7a-android-24
+ 
+#Código que permite ejecutar SonarCloud desde Travis usando autenticación mediante un TOKEN en Travis
+#Debido a que para ejecutar SonarCloud es necesario Java 11 pero para instalar y ejecutar Android es necesario Java 8 no es posible ejecutar
+#el build de android y Sonar en el mismo job.
+#Aunque hay un comando que permite cambiar la versión de java en uso solo es válido para cambiar entre java 7,8,9 y 10. Por tanto, no es una solución
+#válida para este problema.
+
+#addons:
+#  sonarcloud:
+#    organization: "grupo-7-cs"
     
-addons:
-  sonarcloud:
-    organization: "grupo-7-cs"
-    
-script:
-  - sonar-scanner
+#script:
+#  - sonar-scanner
