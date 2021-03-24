@@ -78,7 +78,7 @@ task gitAdd {
 }
 import groovy.swing.SwingBuilder
 
-/*
+/* El swingBuilder da error ya que parece que no es compatible con la versión de java
 task gitCommit {
     description "This task do commit all the modified elements with a message that you enter on the dialog"
     doLast {
