@@ -108,9 +108,13 @@ task gitCommit {
 task gitCommit {
     description "This task do commit all the modified elements with a message that you enter on the dialog"
     doLast {
+        //En caso de que no haya una consola conectada el mensaje del commit será el mensaje por defecto
+        //"push to github using gradle build file". En caso de que SwingBuilder funcionase con nuestra
+        //versión de android y java usariamos un dialogo para pedir el mensaje del commit al usuario
+        //usando SwingBuilder o un JOptionPane
         if (System.console() == null) {
             exec {
-                commandLine "git", "commit","-m","push using gradle"
+                commandLine "git", "commit","-m","push to github using gradle build file"
             }
         }else{
             String commitMessage = System.console().readLine("\nPlease enter your commit message: ")
