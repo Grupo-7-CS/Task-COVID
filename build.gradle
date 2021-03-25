@@ -37,6 +37,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+//Task que se encarga de buildear el código
 task compile{
     description "Compile and build the proyect"
     doLast {
@@ -47,7 +48,7 @@ task compile{
 }
 
 String branch
-
+//Task que permite establecer la rama a la que se va a subir el código y/o de la que se va a hacer pull
 task gitBranch{
     description "This task return the current branch name"
     branch=""
@@ -56,6 +57,7 @@ task gitBranch{
     branch_proc.err.eachLine { line -> println line }
     branch_proc.waitFor()
 }
+//Task que permite hacer pull de una rama
 task gitPull{
     description "git pull on current branch or if we pass -PbranchName='name-of-the-branch' we will do pull of this branch"
     dependsOn "gitBranch"
@@ -68,6 +70,7 @@ task gitPull{
         }
     }
 }
+//Task que permite realizar el comando git add
 task gitAdd {
     description "This task add all modified elements"
     doLast {
@@ -76,9 +79,9 @@ task gitAdd {
         }
     }
 }
-import groovy.swing.SwingBuilder
 
 /* El swingBuilder da error ya que parece que no es compatible con la versión de java
+import groovy.swing.SwingBuilder
 task gitCommit {
     description "This task do commit all the modified elements with a message that you enter on the dialog"
     doLast {
@@ -101,15 +104,23 @@ task gitCommit {
     }
 }*/
 
+//Task que permite realizar el comando git commit con un mensaje introducido por el usuario
 task gitCommit {
     description "This task do commit all the modified elements with a message that you enter on the dialog"
     doLast {
-        exec {
-            commandLine "git", "commit","-m","Test gradle git"
+        if (System.console() == null) {
+            exec {
+                commandLine "git", "commit","-m","push using gradle"
+            }
+        }else{
+            String commitMessage = System.console().readLine("\nPlease enter your commit message: ")
+            exec {
+                commandLine "git", "commit","-m",commitMessage
+            }
         }
-
     }
 }
+//Task que permite realizar el comando git push
 task gitPush {
     description "git push on current branch"
     dependsOn "gitBranch"
@@ -119,12 +130,16 @@ task gitPush {
         }
     }
 }
+//Task que realiza toda la secuencia de compilación, git add, git commit y git push
 task gitCompletePush {
     description "This task do all the processes to do push (add, commit and push)"
+    //Al depender del task compile nos aseguramos de que antes de hacer push a github se compile el proyecto y se ejecuten los test
+    //Por tanto, si se falla al compilar y ejecutar los test no se subirá el código con bugs a github
     dependsOn "compile"
     dependsOn "gitAdd"
     dependsOn "gitCommit"
     dependsOn "gitPush"
+    //Esta instrucción especifica que compile debe ser el primer task que se ejecute
     tasks.findByName("gitAdd").mustRunAfter "compile"
     tasks.findByName("gitCommit").mustRunAfter "gitAdd"
     tasks.findByName("gitPush").mustRunAfter "gitCommit"
