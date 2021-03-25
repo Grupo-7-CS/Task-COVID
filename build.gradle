@@ -47,6 +47,8 @@ task compile{
     }
 }
 
+//Importante: para poder usar estos comandos es necesario tener una clave SSH vinculada con la cuenta de github
+//y sin passphrase. Además, el proyecto debe haber sido clonado usando SSH y no https
 String branch
 //Task que permite establecer la rama a la que se va a subir el código y/o de la que se va a hacer pull
 task gitBranch{
