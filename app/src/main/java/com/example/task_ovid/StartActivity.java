@@ -20,6 +20,9 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context,"WELCOME!", Toast.LENGTH_SHORT);
+        toast.show();
         setContentView(R.layout.activity_start);
         stbut= (ImageButton) findViewById(R.id.button_start);
         stbut.setOnClickListener(new View.OnClickListener() {
