@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#67ECB5"
+    tools:context=".MainActivity">
+    <!-- Mostrar la lista con la que se puede interactuar -->
+    <ListView
+        android:fontFamily="@font/ls_font"
+        android:id="@+id/lista"
+        android:layout_width="wrap_content"
+        android:layout_height="433dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:cacheColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932"
+        android:divider="@color/black"
+        android:dividerHeight="1px"
+        />
+
+    <!-- Para mostrar el avatar del usuario -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="199dp"
+        android:layout_marginBottom="462dp"
+        android:background="@drawable/avatar"
+        android:contentDescription="TODO" />
+    <!-- Texto indicativo de la vida -->
+    <TextView
+        android:id="@+id/VidaTexto"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_width="161dp"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/ls_font"
+        android:text="Vida" />
+    <!-- Línea indicativa de la vida -->
+    <!-- Línea indicativa de la experiencia -->
+    <LinearLayout
+        android:layout_width="161dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="462dp"
+        android:orientation="horizontal">
+
+
+        <ProgressBar
+            android:id="@+id/Vida"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="50dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="Vida"
+            android:elevation="20dp"
+            android:indeterminate="false"
+            android:layerType="software"
+            android:max="100"
+            android:progress="100"
+            android:progressTint="#F44336" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ExperienciaTexto"
+        android:layout_width="161dp"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/ls_font"
+        android:text="Experiencia" />
+
+    <LinearLayout
+        android:layout_width="161dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="462dp"
+        android:orientation="horizontal">
+
+
+        <ProgressBar
+            android:id="@+id/Experiencia"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="50dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="Vida"
+            android:indeterminate="false"
+            android:layerType="software"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#F44336" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/NombreNivel"
+        android:layout_width="143dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layoutMonedas"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-210dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/ls_font"
+        android:text="NIVEL 1"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+    <LinearLayout
+        android:layout_width="161dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="210dp"
+        android:id="@+id/layoutMonedas"
+        android:layout_above="@+id/lista">
+
+        <TextView
+            android:id="@+id/imagenMoneda"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/moneda"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/monedasActuales"
+            android:layout_width="121dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="28dp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

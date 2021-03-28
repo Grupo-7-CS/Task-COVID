@@ -1,0 +1,155 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.0"
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+  id "org.sonarqube" version "3.1.1"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "Grupo-7-CS_Task-COVID"
+    property "sonar.organization", "grupo-7-cs"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+//Task que se encarga de buildear el código
+task compile{
+    description "Compile and build the proyect"
+    doLast {
+        exec {
+            commandLine "gradle","build"
+        }
+    }
+}
+
+//Importante: para poder usar estos comandos es necesario tener una clave SSH vinculada con la cuenta de github
+//y sin passphrase. Además, el proyecto debe haber sido clonado usando SSH y no https
+String branch
+//Task que permite establecer la rama a la que se va a subir el código y/o de la que se va a hacer pull
+task gitBranch{
+    description "This task return the current branch name"
+    branch=""
+    def branch_proc = 'git rev-parse --abbrev-ref HEAD'.execute()
+    branch_proc.in.eachLine {line -> branch = line }
+    branch_proc.err.eachLine { line -> println line }
+    branch_proc.waitFor()
+}
+//Task que permite hacer pull de una rama
+task gitPull{
+    description "git pull on current branch or if we pass -PbranchName='name-of-the-branch' we will do pull of this branch"
+    dependsOn "gitBranch"
+    doLast{
+        exec{
+            if(project.hasProperty('branchName')){
+                branch=branchName
+            }
+            commandLine "git", "pull", "origin", branch.toString()
+        }
+    }
+}
+//Task que permite realizar el comando git add
+task gitAdd {
+    description "This task add all modified elements"
+    doLast {
+        exec {
+            commandLine "git", "add", "*"
+        }
+    }
+}
+
+/* El swingBuilder da error ya que parece que no es compatible con la versión de java
+import groovy.swing.SwingBuilder
+task gitCommit {
+    description "This task do commit all the modified elements with a message that you enter on the dialog"
+    doLast {
+        System.setProperty('java.awt.headless', 'false')
+        new SwingBuilder().edt {
+            dialog(modal: true, title: 'Enter commit message', alwaysOnTop: true, resizable: false, locationRelativeTo: null, pack: true, show: true) {
+                vbox {
+                    label(text: "Please enter your commit message:")
+                    def input1 = textField()
+                    button(defaultButton: true, test: 'OK', actionPerformed: {
+                        commitMessage = input1.text;
+                        dispose();
+                        exec {
+                            commandLine "git", "commit", "-m", commitMessage
+                        }
+                    })
+                }
+            }
+        }
+    }
+}*/
+
+//Task que permite realizar el comando git commit con un mensaje introducido por el usuario
+task gitCommit {
+    description "This task do commit all the modified elements with a message that you enter on the dialog"
+    doLast {
+        //En caso de que no haya una consola conectada el mensaje del commit será el mensaje por defecto
+        //"push to github using gradle build file". En caso de que SwingBuilder funcionase con nuestra
+        //versión de android y java usariamos un dialogo para pedir el mensaje del commit al usuario
+        //usando SwingBuilder o un JOptionPane
+        if (System.console() == null) {
+            exec {
+                commandLine "git", "commit","-m","push to github using gradle build file"
+            }
+        }else{
+            String commitMessage = System.console().readLine("\nPlease enter your commit message: ")
+            exec {
+                commandLine "git", "commit","-m",commitMessage
+            }
+        }
+    }
+}
+//Task que permite realizar el comando git push
+task gitPush {
+    description "git push on current branch"
+    dependsOn "gitBranch"
+    doLast {
+        exec {
+            commandLine "git", "push", "origin", branch.toString()
+        }
+    }
+}
+//Task que realiza toda la secuencia de compilación, git add, git commit y git push
+task gitCompletePush {
+    description "This task do all the processes to do push (add, commit and push)"
+    //Al depender del task compile nos aseguramos de que antes de hacer push a github se compile el proyecto y se ejecuten los test
+    //Por tanto, si se falla al compilar y ejecutar los test no se subirá el código con bugs a github
+    dependsOn "compile"
+    dependsOn "gitAdd"
+    dependsOn "gitCommit"
+    dependsOn "gitPush"
+    //Esta instrucción especifica que compile debe ser el primer task que se ejecute
+    tasks.findByName("gitAdd").mustRunAfter "compile"
+    tasks.findByName("gitCommit").mustRunAfter "gitAdd"
+    tasks.findByName("gitPush").mustRunAfter "gitCommit"
+}
+
+
+

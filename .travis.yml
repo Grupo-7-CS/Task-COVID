@@ -1,0 +1,44 @@
+language: android
+#Distribución a usar (viene con java 8 y java 11)
+dist: trusty
+#Código necesario para que al instalar la SDK se acepten las lincencias de uso automáticamente
+before_install:
+  - yes | sdkmanager "platforms;android-30"
+#Código necesario para establecer el emulador usado en los test (en proyectos android que usan java 11 este código es más simple)
+before_script:
+  - echo y | android update sdk -a --no-ui --filter android-24
+  - echo y | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-24
+  - android list targets | grep -E '^id:' | awk -F '"' '{$1=""; print $2}' # list all targets
+  - echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+#Propiedades de android  
+android:
+  components:
+    # The BuildTools version
+    - build-tools-30.0.2
+
+    # The SDK version
+    - android-30
+    
+    # Componentes adicionales y librerías necesarias
+    - extra-google-m2repository
+    - extra-android-m2repository
+
+    # Imágenes de andorid necesarias para hacer los tests
+    - extra-android-support
+    - sys-img-armeabi-v7a-android-24
+ 
+#Código que permite ejecutar SonarCloud desde Travis usando autenticación mediante un TOKEN en Travis
+#Debido a que para ejecutar SonarCloud es necesario Java 11 pero para instalar y ejecutar Android es necesario Java 8 no es posible ejecutar
+#el build de android y Sonar en el mismo job.
+#Aunque hay un comando que permite cambiar la versión de java en uso solo es válido para cambiar entre java 7,8,9 y 10. Por tanto, no es una solución
+#correcta para este problema.
+#En caso de que el proyecto de Android se hubiera creado usando java 11 este problema no se daría y el código funcionaría correctamente
+#addons:
+#  sonarcloud:
+#    organization: "grupo-7-cs"
+    
+#script:
+#  - sonar-scanner
