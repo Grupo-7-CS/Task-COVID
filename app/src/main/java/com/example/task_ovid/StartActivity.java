@@ -21,9 +21,6 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context,"BUG", Toast.LENGTH_SHORT);
-        toast.show();
         stbut= (ImageButton) findViewById(R.id.button_start);
         stbut.setOnClickListener(new View.OnClickListener() {
             @Override
