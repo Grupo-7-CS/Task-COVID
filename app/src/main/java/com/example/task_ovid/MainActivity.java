@@ -1,7 +1,6 @@
 package com.example.task_ovid;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +22,6 @@ import com.example.task_ovid.stats.Nivel;
 import com.example.task_ovid.stats.Resistencia;
 import com.example.task_ovid.stats.Vida;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
