@@ -1,7 +1,7 @@
 package com.example.task_ovid;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,7 +18,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.task_ovid.menu.MenuNavigation;
+import com.example.task_ovid.stats.Monedas;
+import com.example.task_ovid.stats.Nivel;
+import com.example.task_ovid.stats.Resistencia;
+import com.example.task_ovid.stats.Vida;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -28,26 +33,8 @@ resistencia y experiencia. Además, gestiona el contador de monedas.
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView lista;
     private ArrayList<String> tareas;
-
-
-    private static int maxExperiencia = 100;
-    public  static int maxVida = 100;
-    private static int vida = maxVida;
-    private int experienciaTotal = 0;
-    private static ProgressBar bv;
-    private TextView nivelTexto;
-    private static int experiencia=0;
-    private static int nivel=1;
-    public  static ProgressBar be;
-    private static TextView monedas;
     private ArrayAdapter<String> tareasAdapter;
-    private static double resistencia=1;
-    private static int monedasUsuario=0;
-    private static int restaAux;
     public  ImageView fotoPerfil;
-
-
-
 
     public MainActivity() {
 
@@ -65,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Monedas.init(this);
+        Nivel.init(this);
+        Resistencia.init();
+        Vida.init(this);
+
         setContentView(R.layout.activity_pantallaprincipal);
         lista = findViewById(R.id.lista);
         this.tareas = new ArrayList<>();
@@ -80,11 +73,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         } catch (Exception e){
 
         }
-
-
-
-
     }
+
     private void llenarTareas(){ //este método es para rellenar las listas, el 0 simboliza el contador
         tareas.add("* Hacer PCR 0");
         tareas.add("+ salir con mascarilla 0");
@@ -120,103 +110,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tareas.set(position,string);
         tareasAdapter.notifyDataSetChanged();
 
-        bv=(ProgressBar)findViewById(R.id.Vida);
-        bv.setMax(maxVida);
         if (t.contains("-")){
-            restaAux = (int)(25 * resistencia);
-            int vidaAux = vida - restaAux;
-            setVida(vidaAux);
-            bv.setProgress(vida,true);
-            if (vidaAux<=0){
-                Toast.makeText(getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
+            Vida.decrementarVida();
+            if (Vida.getVida()<=0){
+                Toast.makeText(this.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
             }
         }else{
-            incrementarExperiencia(t);
+            if(Nivel.incrementarExperiencia(t.contains("*")))
+                Monedas.incrementarMonedas(100);
         }
-
     }
 
-//Acción que se ejecuta cuando se realiza una buena acción
-    public void incrementarExperiencia(String t){
-        be=(ProgressBar)findViewById(R.id.Experiencia);
-        be.setMax(maxExperiencia);
-        if(t.contains("+")){
-            experiencia += 10;
-            experienciaTotal +=10;
-
-        }else{
-            experiencia += 50;
-            experienciaTotal += 10;
-        }
-        subirNivel();
-        be.setProgress(experiencia,true);
-    }
-//Cuando sube de nivel el usuario se establece la barra de nivel y las monedas
-    public void subirNivel(){
-        if (experiencia>=maxExperiencia){
-            int extra = experiencia-maxExperiencia;
-            nivel ++;
-            experiencia = extra;
-            maxExperiencia += 20;
-            be.setMax(maxExperiencia);
-            nivelTexto = (TextView)findViewById(R.id.NombreNivel);
-            nivelTexto.setText("NIVEL "+nivel);
-            Toast.makeText(getApplicationContext(), "Has subido de nivel. Enhorabuena", Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(), "Has ganado 100 monedas", Toast.LENGTH_LONG).show();
-
-            incrementarMonedas(100);
-        }
-        bv.setProgress(vida,true);
-    }
-//Incrementa las monedas, se usa al subir de nivel
-    public void incrementarMonedas(int cantidad){
-        monedas = (TextView)findViewById(R.id.monedasActuales);
-        monedasUsuario+=cantidad;
-        monedas.setText(""+ monedasUsuario);
-
+    public TextView getVistaMonedas(){
+        return  (TextView)findViewById(R.id.monedasActuales);
     }
 
-//Establece la vida del jugador al salir de la tienda
-    public static void setVida(int v) {
-        if (vida>=0) {
-            vida = v;
-        }else{
-            vida = 0;
-        }
-        bv.setProgress(vida,true);
-    }
-    public static int getMaxExperiencia(){
-        return maxExperiencia;
-    }
-    public static int getVida(){
-        return vida;
-    }
-    public static int getNivel(){
-        return nivel;
-    }
-    public static int getExperiencia(){
-        return experiencia;
+    public TextView getVistaNivel(){
+        return  (TextView)findViewById(R.id.NombreNivel);
     }
 
-    public static int getMaxVida() {
-        return maxVida;
+    public ProgressBar getBarraExperiencia(){
+        return (ProgressBar)findViewById(R.id.Experiencia);
     }
 
-    public static int getMonedasUsuario() {
-        return monedasUsuario;
-    }
-
-    public  static void setMonedasUsuario(int m) {
-        monedasUsuario = m;
-        monedas.setText(""+ monedasUsuario);
-    }
-
-    public static double getResistencia() {
-        return resistencia;
-    }
-
-    public  void setResistencia(double resistencia) {
-        this.resistencia = resistencia;
+    public ProgressBar getBarraVida(){
+        return (ProgressBar)findViewById(R.id.Vida);
     }
 
     //Método que permite abrir(inflar) el menú desplegable de la parte superior
@@ -227,17 +145,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
+
     //Método que controla la navegación entre páginas usando el menú superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        new MenuNavigation().navigate(item, this);
+        MenuNavigation.navigate(item, this);
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
-
-
-
 }

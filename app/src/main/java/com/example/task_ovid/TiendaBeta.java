@@ -7,12 +7,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.task_ovid.menu.MenuNavigation;
+import com.example.task_ovid.stats.Monedas;
+import com.example.task_ovid.stats.Nivel;
+import com.example.task_ovid.stats.Resistencia;
+import com.example.task_ovid.stats.Vida;
 
 public class TiendaBeta extends AppCompatActivity {
 
@@ -26,20 +31,17 @@ public class TiendaBeta extends AppCompatActivity {
     private static int vidaAux;
     private static int monedasAux;
     private static int vidaMaxAux;
-    private MainActivity x;
     private static double resAux;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda_beta);
-//Para conseguir las monedas del main
-        x=new MainActivity();
-        this.vidaAux = x.getVida();
-        this.monedasAux = x.getMonedasUsuario();
-        this.vidaMaxAux = x.getMaxVida();
-        this.resAux = x.getResistencia();
-//Estos métodos esperan a que hagas click sobre los productos de la tienda
+        this.vidaAux = Vida.getVida();
+        this.vidaMaxAux = Vida.getMaxVida();
+        this.monedasAux = Monedas.getMonedasUsuario();
+        this.resAux = Resistencia.getResistencia();
+        //Estos métodos esperan a que hagas click sobre los productos de la tienda
         p1=(ImageButton)findViewById(R.id.pocion1);
         p1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,13 +89,13 @@ public class TiendaBeta extends AppCompatActivity {
                 }else{
                     vidaAux = vidaAux + 20;
                 }
-                x.setVida(vidaAux);
+                Vida.setVida(vidaAux);
                 hp.setText(String.valueOf(vidaAux));
             }else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
             }
             monedasAux = monedasAux-100;
-            x.setMonedasUsuario(monedasAux);
+            Monedas.setMonedasUsuario(monedasAux);
             coins.setText(String.valueOf(monedasAux));
         }else{
             Toast.makeText(getApplicationContext(), "Ya estás a tope jefe de equipo", Toast.LENGTH_LONG).show();
@@ -108,26 +110,26 @@ public class TiendaBeta extends AppCompatActivity {
                 }else{
                     vidaAux = vidaAux + 60;
                 }
-                x.setVida(vidaAux);
+                Vida.setVida(vidaAux);
                 hp.setText(String.valueOf(vidaAux));
             }else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
             }
             monedasAux = monedasAux-300;
-            x.setMonedasUsuario(monedasAux);
+            Monedas.setMonedasUsuario(monedasAux);
             coins.setText(String.valueOf(monedasAux));
         }else{
             Toast.makeText(getApplicationContext(), "Ya estás a tope jefe de equipo", Toast.LENGTH_LONG).show();
         }
     }
-//Igual que las pocimas pero suma resistencia al usuario
+    //Igual que las pocimas pero suma resistencia al usuario
     public void mascarilla(int monedasAux, double resAux){
         if (resAux == 1){
             if (monedasAux >= 200) {
                 resAux = resAux + 0.1;
                 monedasAux = monedasAux -200;
-                x.setMonedasUsuario(monedasAux);
-                x.setResistencia(resAux);
+                Monedas.setMonedasUsuario(monedasAux);
+                Resistencia.setResistencia(resAux);
                 coins.setText(String.valueOf(monedasAux));
             } else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
@@ -142,8 +144,8 @@ public class TiendaBeta extends AppCompatActivity {
             if (monedasAux >= 1500) {
                 resAux = resAux + 0.5;
                 monedasAux = monedasAux -1500;
-                x.setMonedasUsuario(monedasAux);
-                x.setResistencia(resAux);
+                Monedas.setMonedasUsuario(monedasAux);
+                Resistencia.setResistencia(resAux);
                 coins.setText(String.valueOf(monedasAux));
             } else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
@@ -165,7 +167,7 @@ public class TiendaBeta extends AppCompatActivity {
     //Método que controla la navegación entre páginas usando el menú superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        new MenuNavigation().navigate(item, this);
+        MenuNavigation.navigate(item, this);
         return super.onOptionsItemSelected(item);
     }
 

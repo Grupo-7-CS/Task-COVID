@@ -5,13 +5,9 @@ import android.view.MenuItem;
 
 public class MenuNavigation {
 
-    private Option[] options;
+    private static Option[] options = new Option[]{new Main(), new MenuAyuda(), new Perfil(), new Salir(), new Tienda()};
 
-    public MenuNavigation() {
-        this.options = new Option[]{new Main(), new MenuAyuda(), new Perfil(), new Salir(), new Tienda()};
-    }
-
-    public void navigate(MenuItem item, Activity context) {
+    public static void navigate(MenuItem item, Activity context) {
         for (Option option: options) {
             if (option.selectOption(item))
                 option.executeOption(context);
