@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.MenuItem;
 
-import com.example.task_ovid.MainActivity;
 import com.example.task_ovid.R;
 import com.example.task_ovid.TiendaBeta;
 
@@ -21,3 +20,4 @@ public class Tienda implements Option {
         context.startActivity(intent);
     }
 }
+

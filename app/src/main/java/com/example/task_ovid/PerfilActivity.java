@@ -53,7 +53,7 @@ private ImageView imagenPerfil;
         //Método que controla la navegación entre páginas usando el menú superior
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            new MenuNavigation().navigate(item, this);
+            MenuNavigation.navigate(item, this);
             return super.onOptionsItemSelected(item);
         }
 
