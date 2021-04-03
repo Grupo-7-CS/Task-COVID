@@ -25,10 +25,10 @@ public class TiendaBeta extends AppCompatActivity {
     private TextView hp;
     private TextView hpMax;
     private TextView coins;
-    private static int vidaAux;
-    private static int monedasAux;
-    private static int vidaMaxAux;
-    private static double resAux;
+    private int vidaAux;
+    private int monedasAux;
+    private int vidaMaxAux;
+    private double resAux;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
