@@ -13,6 +13,11 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -31,13 +36,14 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:feature/demo" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cf0282d-b592-4abb-91db-d18e364b314f" name="Default Changelist" comment="bug fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/StartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/StartActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616927258534</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Demo">
+      <created>1617468890411</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617468890411</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,7 +192,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feature/demo" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -189,20 +214,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug" />
     <MESSAGE value="bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixed" />
+    <MESSAGE value="Demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Demo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="460" y="138" key="FileChooserDialogImpl" timestamp="1616927615954">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="460" y="138" key="FileChooserDialogImpl/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927615954" />
-    <state x="272" y="116" key="Vcs.Push.Dialog.v2" timestamp="1616927313777">
-      <screen x="0" y="0" width="1360" height="768" />
+    <state x="-1093" y="116" key="Vcs.Push.Dialog.v2" timestamp="1617468891798">
+      <screen x="-1366" y="0" width="1366" height="768" />
     </state>
+    <state x="-1093" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617468891798" />
     <state x="272" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927313777" />
-    <state x="489" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616927988185">
-      <screen x="0" y="0" width="1360" height="768" />
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617468799729">
+      <screen x="-1366" y="0" width="1366" height="768" />
     </state>
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617468799729" />
     <state x="489" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927988185" />
   </component>
 </project>
