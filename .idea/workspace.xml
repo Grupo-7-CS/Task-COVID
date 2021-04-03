@@ -13,6 +13,11 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:release" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -25,7 +30,7 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -57,7 +62,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,7 +196,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -216,19 +221,19 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="460" y="138" key="FileChooserDialogImpl/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927615954" />
-    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617470628416">
+    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617470989673">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
-    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470628416" />
+    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470989673" />
     <state x="-1093" y="116" key="Vcs.Push.Dialog.v2" timestamp="1617468891798">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
     <state x="-1093" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617468891798" />
     <state x="272" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927313777" />
-    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617470643466">
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617470996818">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
-    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470643466" />
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470996818" />
     <state x="489" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927988185" />
     <state x="-839" y="297" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1617469711654">
       <screen x="-1366" y="0" width="1366" height="768" />
