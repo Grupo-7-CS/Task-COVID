@@ -13,11 +13,6 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:release" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -35,7 +30,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf0282d-b592-4abb-91db-d18e364b314f" name="Default Changelist" comment="bug fixed" />
+    <list default="true" id="54ea81dd-b976-4129-8780-6c3b31a4e2cf" name="Default Changelist" comment="merge master" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617469745047</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit">
+      <created>1617473108762</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617473108762</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +216,8 @@
     <MESSAGE value="bug fixed" />
     <MESSAGE value="Demo" />
     <MESSAGE value="release" />
-    <option name="LAST_COMMIT_MESSAGE" value="release" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="460" y="138" key="FileChooserDialogImpl" timestamp="1616927615954">
@@ -239,16 +242,5 @@
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
     <state x="-839" y="297" key="git4idea.rebase.GitUnstructuredEditor/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617469711654" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/StartActivity.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
