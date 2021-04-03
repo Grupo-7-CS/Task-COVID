@@ -7,42 +7,46 @@ import com.example.task_ovid.MainActivity;
 
 public class Vida {
 
-    private static final int maxVida=100;
-    private static int vida;
+    private static final int MAX_VIDA = 100;
+    private static int vidaActual;
     private static MainActivity main;
 
+    private Vida(){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void init(MainActivity main){
-        vida=100;
+        vidaActual =100;
         Vida.main=main;
     }
 
     public static void decrementarVida(){
-        int restaAux = (int)(25 * Resistencia.getResistencia());
-        int vidaAux = vida - restaAux;
-        setVida(vidaAux);
+        int restaAux = (int)(25 * Resistencia.getResistenciaActual());
+        int vidaAux = vidaActual - restaAux;
+        setVidaActual(vidaAux);
         if (vidaAux<=0){
             Toast.makeText(main.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
         }
     }
 
     //Establece la vida del jugador al salir de la tienda
-    public static void setVida(int v) {
-        if (vida>=0) {
-            vida = v;
+    public static void setVidaActual(int v) {
+        if (vidaActual >=0) {
+            vidaActual = v;
         }else{
-            vida = 0;
+            vidaActual = 0;
         }
         ProgressBar bv =main.getBarraVida();
-        bv.setMax(maxVida);
-        bv.setProgress(vida,true);
+        bv.setMax(MAX_VIDA);
+        bv.setProgress(vidaActual,true);
     }
 
-    public static int getVida(){
-        return vida;
+    public static int getVidaActual(){
+        return vidaActual;
     }
 
     public static int getMaxVida() {
-        return maxVida;
+        return MAX_VIDA;
     }
 
 }
