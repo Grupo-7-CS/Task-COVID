@@ -13,30 +13,19 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:release" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:release" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:develop" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -181,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617468890411</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="release">
+      <created>1617469745047</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617469745047</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,7 +191,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="develop" />
                       </list>
                     </value>
                   </entry>
@@ -212,26 +208,27 @@
     <MESSAGE value="bug" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="Demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Demo" />
+    <MESSAGE value="release" />
+    <option name="LAST_COMMIT_MESSAGE" value="release" />
   </component>
   <component name="WindowStateProjectService">
     <state x="460" y="138" key="FileChooserDialogImpl" timestamp="1616927615954">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="460" y="138" key="FileChooserDialogImpl/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927615954" />
-    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617469707459">
+    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617470628416">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
-    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617469707459" />
+    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470628416" />
     <state x="-1093" y="116" key="Vcs.Push.Dialog.v2" timestamp="1617468891798">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
     <state x="-1093" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617468891798" />
     <state x="272" y="116" key="Vcs.Push.Dialog.v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927313777" />
-    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617468799729">
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617470643466">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
-    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617468799729" />
+    <state x="-875" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470643466" />
     <state x="489" y="297" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927988185" />
     <state x="-839" y="297" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1617469711654">
       <screen x="-1366" y="0" width="1366" height="768" />
