@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (t.contains("-")){
             Vida.decrementarVida();
-            if (Vida.getVida()<=0){
+            if (Vida.getVidaActual()<=0){
                 Toast.makeText(this.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
             }
         }else{

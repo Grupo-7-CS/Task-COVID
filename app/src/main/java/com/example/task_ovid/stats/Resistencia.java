@@ -1,17 +1,21 @@
 package com.example.task_ovid.stats;
 
 public class Resistencia {
-    private static double resistencia;
+    private static double resistenciaActual;
+
+    private Resistencia(){
+        throw new IllegalStateException("Utility class");
+    }
 
     public static void init(){
-        resistencia=1;
+        resistenciaActual =1;
     }
 
-    public static double getResistencia() {
-        return resistencia;
+    public static double getResistenciaActual() {
+        return resistenciaActual;
     }
 
-    public static void setResistencia(double resistencia) {
-        Resistencia.resistencia = resistencia;
+    public static void setResistenciaActual(double resistenciaActual) {
+        Resistencia.resistenciaActual = resistenciaActual;
     }
 }

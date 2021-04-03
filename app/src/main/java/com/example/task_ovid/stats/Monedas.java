@@ -7,6 +7,10 @@ public class Monedas {
     private static int monedasUsuario;
     private static MainActivity main;
 
+    private Monedas(){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void init(MainActivity main){
         Monedas.main=main;
     }

@@ -1,13 +1,11 @@
 package com.example.task_ovid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.task_ovid.menu.MenuNavigation;
 import com.example.task_ovid.stats.Monedas;
-import com.example.task_ovid.stats.Nivel;
 import com.example.task_ovid.stats.Resistencia;
 import com.example.task_ovid.stats.Vida;
 
@@ -37,10 +34,10 @@ public class TiendaBeta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda_beta);
-        this.vidaAux = Vida.getVida();
-        this.vidaMaxAux = Vida.getMaxVida();
-        this.monedasAux = Monedas.getMonedasUsuario();
-        this.resAux = Resistencia.getResistencia();
+        vidaAux = Vida.getVidaActual();
+        vidaMaxAux = Vida.getMaxVida();
+        monedasAux = Monedas.getMonedasUsuario();
+        resAux = Resistencia.getResistenciaActual();
         //Estos métodos esperan a que hagas click sobre los productos de la tienda
         p1=(ImageButton)findViewById(R.id.pocion1);
         p1.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +86,7 @@ public class TiendaBeta extends AppCompatActivity {
                 }else{
                     vidaAux = vidaAux + 20;
                 }
-                Vida.setVida(vidaAux);
+                Vida.setVidaActual(vidaAux);
                 hp.setText(String.valueOf(vidaAux));
             }else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
@@ -110,7 +107,7 @@ public class TiendaBeta extends AppCompatActivity {
                 }else{
                     vidaAux = vidaAux + 60;
                 }
-                Vida.setVida(vidaAux);
+                Vida.setVidaActual(vidaAux);
                 hp.setText(String.valueOf(vidaAux));
             }else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
@@ -129,7 +126,7 @@ public class TiendaBeta extends AppCompatActivity {
                 resAux = resAux + 0.1;
                 monedasAux = monedasAux -200;
                 Monedas.setMonedasUsuario(monedasAux);
-                Resistencia.setResistencia(resAux);
+                Resistencia.setResistenciaActual(resAux);
                 coins.setText(String.valueOf(monedasAux));
             } else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
@@ -145,7 +142,7 @@ public class TiendaBeta extends AppCompatActivity {
                 resAux = resAux + 0.5;
                 monedasAux = monedasAux -1500;
                 Monedas.setMonedasUsuario(monedasAux);
-                Resistencia.setResistencia(resAux);
+                Resistencia.setResistenciaActual(resAux);
                 coins.setText(String.valueOf(monedasAux));
             } else{
                 Toast.makeText(getApplicationContext(), "Estás pobre BRO", Toast.LENGTH_LONG).show();
