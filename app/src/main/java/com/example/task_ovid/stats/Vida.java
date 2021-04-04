@@ -11,37 +11,41 @@ public class Vida {
     private static int vidaActual;
     private static MainActivity main;
 
-    private Vida(){
+    private Vida() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void init(MainActivity main){
-        vidaActual =100;
-        Vida.main=main;
+    public static void init(MainActivity main) {
+        vidaActual = 100;
+        Vida.main = main;
     }
 
-    public static void decrementarVida(){
-        int restaAux = (int)(25 * Resistencia.getResistenciaActual());
+    public static void decrementarVida() {
+        int restaAux = (int) (25 * Resistencia.getResistenciaActual());
         int vidaAux = vidaActual - restaAux;
         setVidaActual(vidaAux);
-        if (vidaAux<=0){
+        if (main != null && vidaAux <= 0) {
             Toast.makeText(main.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
         }
     }
 
     //Establece la vida del jugador al salir de la tienda
     public static void setVidaActual(int v) {
-        if (vidaActual >=0) {
+        //Si el usuario no tiene vida (ha perdido) o el valor de v es negativo la vida debe ser 0
+        if (vidaActual >= 0 && v >= 0) {
             vidaActual = v;
-        }else{
+        } else {
             vidaActual = 0;
         }
-        ProgressBar bv =main.getBarraVida();
-        bv.setMax(MAX_VIDA);
-        bv.setProgress(vidaActual,true);
+        //Protege de errores en caso de que main sea null
+        if (main != null) {
+            ProgressBar bv = main.getBarraVida();
+            bv.setMax(MAX_VIDA);
+            bv.setProgress(vidaActual, true);
+        }
     }
 
-    public static int getVidaActual(){
+    public static int getVidaActual() {
         return vidaActual;
     }
 
