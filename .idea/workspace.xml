@@ -30,7 +30,24 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54ea81dd-b976-4129-8780-6c3b31a4e2cf" name="Default Changelist" comment="merge master" />
+    <list default="true" id="4cf0282d-b592-4abb-91db-d18e364b314f" name="Default Changelist" comment="bug fixed">
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/task_ovid/MonedasUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/task_ovid/NivelUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/task_ovid/ResistenciaUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/task_ovid/VidaUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Task-ovid.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Task-ovid.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Monedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Monedas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Nivel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Nivel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Resistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Resistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Vida.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/task_ovid/stats/Vida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +71,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -71,8 +95,98 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.task_ovid" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android JUnit.VidaUnitTest">
+    <configuration name="MonedasUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task-ovid.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.task_ovid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.task_ovid" />
+      <option name="MAIN_CLASS_NAME" value="com.example.task_ovid.MonedasUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MonedasUnitTest.testIncrementarMonedas" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task-ovid.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.task_ovid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.task_ovid" />
+      <option name="MAIN_CLASS_NAME" value="com.example.task_ovid.MonedasUnitTest" />
+      <option name="METHOD_NAME" value="testIncrementarMonedas" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NivelUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task-ovid.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.task_ovid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.task_ovid" />
+      <option name="MAIN_CLASS_NAME" value="com.example.task_ovid.NivelUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResistenciaUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task-ovid.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.task_ovid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.task_ovid" />
+      <option name="MAIN_CLASS_NAME" value="com.example.task_ovid.ResistenciaUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VidaUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task-ovid.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.task_ovid.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.task_ovid" />
+      <option name="MAIN_CLASS_NAME" value="com.example.task_ovid.VidaUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -80,7 +194,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Task-ovid.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -137,6 +251,15 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.VidaUnitTest" />
+        <item itemvalue="Android JUnit.NivelUnitTest" />
+        <item itemvalue="Android JUnit.ResistenciaUnitTest" />
+        <item itemvalue="Android JUnit.MonedasUnitTest" />
+        <item itemvalue="Android JUnit.MonedasUnitTest.testIncrementarMonedas" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -177,14 +300,7 @@
       <option name="project" value="LOCAL" />
       <updated>1617469745047</updated>
     </task>
-    <task id="LOCAL-00005" summary="commit">
-      <created>1617473108762</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1617473108762</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,18 +332,41 @@
     <MESSAGE value="bug fixed" />
     <MESSAGE value="Demo" />
     <MESSAGE value="release" />
-    <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="release" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="516" y="288" width="950" height="537" key="#PSD" timestamp="1617538437212">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="516" y="288" width="950" height="537" key="#PSD/72.27.1848.1053@72.27.1848.1053" timestamp="1617538437212" />
     <state x="460" y="138" key="FileChooserDialogImpl" timestamp="1616927615954">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="460" y="138" key="FileChooserDialogImpl/0.0.1360.768/-1366.0.1366.768@0.0.1360.768" timestamp="1616927615954" />
-    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617472562705">
+    <state width="1802" height="275" key="GridCell.Tab.0.bottom" timestamp="1617541761802">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="275" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1617541761802" />
+    <state width="1802" height="275" key="GridCell.Tab.0.center" timestamp="1617541761802">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="275" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1617541761802" />
+    <state width="1802" height="275" key="GridCell.Tab.0.left" timestamp="1617541761802">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="275" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1617541761802" />
+    <state width="1802" height="275" key="GridCell.Tab.0.right" timestamp="1617541761802">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="275" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1617541761802" />
+    <state x="-1045" y="145" key="MultipleFileMergeDialog" timestamp="1617470989673">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
-    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617472562705" />
+    <state x="-1045" y="145" key="MultipleFileMergeDialog/0.0.1360.768/-1366.0.1366.768@-1366.0.1366.768" timestamp="1617470989673" />
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1617538422809">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1617538422809" />
     <state x="-1093" y="116" key="Vcs.Push.Dialog.v2" timestamp="1617468891798">
       <screen x="-1366" y="0" width="1366" height="768" />
     </state>
