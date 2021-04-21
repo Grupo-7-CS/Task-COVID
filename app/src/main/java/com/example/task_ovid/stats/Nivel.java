@@ -23,8 +23,10 @@ public class Nivel {
     }
 
     //Acción que se ejecuta cuando se realiza una buena acción
-    public static boolean incrementarExperiencia(boolean isPCR) {
-        if (isPCR) {
+    public static boolean incrementarExperiencia(boolean isPCR,boolean isVacuna) {
+        if(isVacuna){
+            experiencia += 100;
+        } else if (isPCR) {
             experiencia += 50;
         } else {
             experiencia += 10;
@@ -58,4 +60,15 @@ public class Nivel {
         return false;
     }
 
+    public static void setExperiencia(int experienciaNueva) {
+        experiencia=experienciaNueva;
+    }
+
+    public static void setNivelActual(int nivelActualNuevo) {
+        nivelActual=nivelActualNuevo;
+    }
+
+    public static void setMaxExperiencia(int maxExperienciaActual){
+        maxExperiencia = maxExperienciaActual;
+    }
 }

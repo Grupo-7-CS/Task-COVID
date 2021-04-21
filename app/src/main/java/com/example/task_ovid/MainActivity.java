@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void llenarTareas(){ //este método es para rellenar las listas, el 0 simboliza el contador
+        tareas.add("** Ponerse la vacuna 0");
         tareas.add("* Hacer PCR 0");
         tareas.add("+ salir con mascarilla 0");
         tareas.add("+ lavarse las manos 0");
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Toast.makeText(this.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
             }
         }else{
-            if(Nivel.incrementarExperiencia(t.contains("*")))
+            if(Nivel.incrementarExperiencia(t.contains("*"),t.contains("**")))
                 Monedas.incrementarMonedas(100);
         }
     }
