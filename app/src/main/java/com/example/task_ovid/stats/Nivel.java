@@ -23,8 +23,10 @@ public class Nivel {
     }
 
     //Acción que se ejecuta cuando se realiza una buena acción
-    public static boolean incrementarExperiencia(boolean isPCR,boolean isVacuna) {
-        if(isVacuna){
+    public static boolean incrementarExperiencia(boolean isPCR,boolean isVacuna,boolean isSecondDose) {
+        if(isSecondDose){
+            experiencia += 150;
+        } else if(isVacuna){
             experiencia += 100;
         } else if (isPCR) {
             experiencia += 50;
