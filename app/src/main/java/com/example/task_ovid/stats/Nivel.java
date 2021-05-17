@@ -22,6 +22,9 @@ public class Nivel {
         Nivel.main = main;
     }
 
+    public static int getNivel(){return nivelActual;}
+    public static int getExperiencia(){return experiencia;}
+
     //Acción que se ejecuta cuando se realiza una buena acción
     public static boolean incrementarExperiencia(boolean isPCR,boolean isVacuna,boolean isSecondDose) {
         if(isSecondDose){

@@ -1,3 +1,5 @@
+
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
@@ -14,8 +16,10 @@ buildscript {
 }
 
 plugins {
-  id "org.sonarqube" version "3.1.1"
+    id "org.sonarqube" version "3.1.1"
 }
+
+
 
 sonarqube {
   properties {
@@ -150,6 +154,7 @@ task gitCompletePush {
     tasks.findByName("gitCommit").mustRunAfter "gitAdd"
     tasks.findByName("gitPush").mustRunAfter "gitCommit"
 }
+
 
 
 
