@@ -32,10 +32,7 @@ android {
 }
 
 dependencies {
-    androidTestImplementation 'info.cukes:cucumber-junit:1.2.5@jar'
-    androidTestImplementation 'info.cukes:cucumber-android:1.2.5@jar'
-    androidTestImplementation 'info.cukes:cucumber-java:1.2.5@jar'
-    androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
+    androidTestImplementation 'io.cucumber:cucumber-android:4.8.4'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
