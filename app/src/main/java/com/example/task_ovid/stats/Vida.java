@@ -9,6 +9,7 @@ public class Vida {
 
     private static final int MAX_VIDA = 100;
     private static int vidaActual;
+    private static int inmunidadActual = 0;
     private static MainActivity main;
 
     private Vida() {
@@ -21,11 +22,15 @@ public class Vida {
     }
 
     public static void decrementarVida() {
-        int restaAux = (int) (25 * Resistencia.getResistenciaActual());
-        int vidaAux = vidaActual - restaAux;
-        setVidaActual(vidaAux);
-        if (main != null && vidaAux <= 0) {
-            Toast.makeText(main.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
+        if (inmunidadActual==0){
+            int restaAux = (int) (25 * Resistencia.getResistenciaActual());
+            int vidaAux = vidaActual - restaAux;
+            setVidaActual(vidaAux);
+            if (main != null && vidaAux <= 0) {
+                Toast.makeText(main.getApplicationContext(), "Con estos habitos te vas a contagiar ;(", Toast.LENGTH_LONG).show();
+            }
+        }else {
+            inmunidadActual-=1;
         }
     }
 
@@ -43,6 +48,14 @@ public class Vida {
             bv.setMax(MAX_VIDA);
             bv.setProgress(vidaActual, true);
         }
+    }
+
+    public static void activarInmunidad(){
+        inmunidadActual = 3;
+    }
+
+    public static int getInmunidadActual(){
+        return inmunidadActual;
     }
 
     public static int getVidaActual() {

@@ -5,7 +5,6 @@ import android.view.InputDevice;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.lifecycle.Lifecycle;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.action.CoordinatesProvider;
 import androidx.test.espresso.action.GeneralClickAction;
@@ -17,19 +16,16 @@ import androidx.test.espresso.action.Tap;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.rule.ActivityTestRule;
 
 import com.example.task_ovid.stats.Monedas;
 import com.example.task_ovid.stats.Nivel;
 import com.example.task_ovid.stats.Vida;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -68,16 +64,23 @@ public class MainActivityInstrumentedTest {
 
         onView(withId(R.id.lista)).perform(swipeUp());
 
+        //El usuario tiene inmunidad completa, inmunidad == 3
+        assertEquals(Vida.getInmunidadActual(),3);
         onView(withId(R.id.lista)).perform(clickXY(750,750)).check(matches(isDisplayed()));
         assertEquals(Monedas.getMonedasUsuario(),200);
         assertEquals(Nivel.getExperiencia(),30);
-        int vida = Vida.getVidaActual();
-        assertEquals(Vida.getVidaActual(),75);
+        //Como el usuario es inmune por la haberse puesto la segunda dosis no pierde vida aunque
+        //haga una mala acción. Nota: la inmunidad te protege de tres malas acciones ya que se va
+        //gastando
+        assertEquals(Vida.getVidaActual(),100);
+        //El usuario a perdido un punto de inmunidad, inmunidad == 2
+        assertEquals(Vida.getInmunidadActual(),2);
 
         onView(withId(R.id.lista)).perform(clickXY(950,950)).check(matches(isDisplayed()));
         assertEquals(Monedas.getMonedasUsuario(),200);
         assertEquals(Nivel.getExperiencia(),30);
-        assertEquals(Vida.getVidaActual(),50);
+        assertEquals(Vida.getVidaActual(),100);
+        assertEquals(Vida.getInmunidadActual(),1);
 
         activityRule.getScenario().close();
     }

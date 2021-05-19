@@ -29,6 +29,7 @@ public class Nivel {
     public static boolean incrementarExperiencia(boolean isPCR,boolean isVacuna,boolean isSecondDose) {
         if(isSecondDose){
             experiencia += 150;
+            Vida.activarInmunidad();
         } else if(isVacuna){
             experiencia += 100;
         } else if (isPCR) {
