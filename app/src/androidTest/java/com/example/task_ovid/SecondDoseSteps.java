@@ -2,13 +2,11 @@ package com.example.task_ovid;
 
 import com.example.task_ovid.stats.Nivel;
 
-import cucumber.api.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class SecondDoseSteps {
 
@@ -26,7 +24,7 @@ public class SecondDoseSteps {
         Nivel.setNivelActual(2);
     }
 
-    @Given("^the user is level dour with 0 experience points$")
+    @Given("^the user is level four with 0 experience points$")
     public void the_user_is_level_dour_with_0_experience_points() throws Throwable {
         Nivel.setExperiencia(0);
         Nivel.setMaxExperiencia(160);

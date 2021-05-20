@@ -5,7 +5,7 @@ a user
 
 I want
 
-to gain immunity to the damage caused by doing three things wrong after getting the second dose of the vaccine.
+to gain immunity to the damage caused by doing three things wrong (not stackable) after getting the second dose of the vaccine.
 
 So that
 
