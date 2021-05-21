@@ -39,10 +39,15 @@ public class ShopInstrumentedTest {
 
     @Test
     public void ShopClickTest() {
+        //Set up
+        Vida.setVidaActual(50);
         Monedas.setMonedasUsuario(1000);
-        
+
         shopRule.getScenario().onActivity(shop -> shop.pocima(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
         assertEquals(900,Monedas.getMonedasUsuario());
+
+        //Set up
+        Vida.setVidaActual(50);
 
         shopRule.getScenario().onActivity(shop -> shop.pocimasuper(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
         assertEquals(600,Monedas.getMonedasUsuario());
