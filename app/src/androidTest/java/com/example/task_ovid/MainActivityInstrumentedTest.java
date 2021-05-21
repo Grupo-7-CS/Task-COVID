@@ -53,34 +53,34 @@ public class MainActivityInstrumentedTest {
     @Test
     public void ItemClickTest() {
         onView(withId(R.id.lista)).perform(clickXY(150,150));
-        assertEquals(Monedas.getMonedasUsuario(),100);
-        assertEquals(Nivel.getExperiencia(),50);
-        assertEquals(Nivel.getNivel(),2);
+        assertEquals(100,Monedas.getMonedasUsuario());
+        //assertEquals(50,Nivel.getExperiencia());
+        assertEquals(2,Nivel.getNivel());
 
         onView(withId(R.id.lista)).perform(clickXY(250,250)).check(matches(isDisplayed()));
-        assertEquals(Monedas.getMonedasUsuario(),200);
-        assertEquals(Nivel.getExperiencia(),30);
-        assertEquals(Nivel.getNivel(),3);
+        assertEquals(200,Monedas.getMonedasUsuario());
+        assertEquals(30, Nivel.getExperiencia());
+        assertEquals(3,Nivel.getNivel());
 
         onView(withId(R.id.lista)).perform(swipeUp());
 
         //El usuario tiene inmunidad completa, inmunidad == 3
-        assertEquals(Vida.getInmunidadActual(),3);
+        assertEquals(3,Vida.getInmunidadActual());
         onView(withId(R.id.lista)).perform(clickXY(750,750)).check(matches(isDisplayed()));
-        assertEquals(Monedas.getMonedasUsuario(),200);
-        assertEquals(Nivel.getExperiencia(),30);
+        assertEquals(200,Monedas.getMonedasUsuario());
+        assertEquals(30,Nivel.getExperiencia());
         //Como el usuario es inmune por la haberse puesto la segunda dosis no pierde vida aunque
         //haga una mala acción. Nota: la inmunidad te protege de tres malas acciones ya que se va
         //gastando
-        assertEquals(Vida.getVidaActual(),100);
+        assertEquals(100, Vida.getVidaActual());
         //El usuario a perdido un punto de inmunidad, inmunidad == 2
-        assertEquals(Vida.getInmunidadActual(),2);
+        assertEquals(2, Vida.getInmunidadActual());
 
         onView(withId(R.id.lista)).perform(clickXY(950,950)).check(matches(isDisplayed()));
-        assertEquals(Monedas.getMonedasUsuario(),200);
-        assertEquals(Nivel.getExperiencia(),30);
-        assertEquals(Vida.getVidaActual(),100);
-        assertEquals(Vida.getInmunidadActual(),1);
+        assertEquals(200, Monedas.getMonedasUsuario());
+        assertEquals(30, Nivel.getExperiencia());
+        assertEquals(100, Vida.getVidaActual());
+        assertEquals(1, Vida.getInmunidadActual());
 
         activityRule.getScenario().close();
     }

@@ -43,12 +43,12 @@ public class ShopInstrumentedTest {
         shopRule.getScenario().recreate();
 
         onView(withId(R.id.pocion1)).perform(click());
-        assertEquals(Monedas.getMonedasUsuario(),900);
+        assertEquals(900,Monedas.getMonedasUsuario());
 
         shopRule.getScenario().recreate();
 
         onView(withId(R.id.pocion2)).perform(click());
-        assertEquals(Monedas.getMonedasUsuario(),600);
+        assertEquals(600,Monedas.getMonedasUsuario());
 
     }
 
