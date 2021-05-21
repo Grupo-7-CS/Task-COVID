@@ -92,6 +92,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String t = parent.getItemAtPosition(position).toString();
+        updateTask(t,position);
+    }
+
+    public void updateTask(String t,int position){
         //divide el string para poder cambiar el contador
         String[] parts = t.split(" ");
         //incrementar el contador y actualizar el string

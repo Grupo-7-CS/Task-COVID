@@ -29,6 +29,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
 
 /**
@@ -58,21 +59,20 @@ public class MainActivityInstrumentedTest {
         Nivel.setMaxExperiencia(100);
         Nivel.setExperiencia(0);
 
-        onView(withId(R.id.lista)).perform(clickXY(150,150));
+        activityRule.getScenario().onActivity(main -> main.updateTask("*** Ponerse la segunda dosis 0",0));
         assertEquals(100,Monedas.getMonedasUsuario());
-        //assertEquals(50,Nivel.getExperiencia());
+        assertEquals(50,Nivel.getExperiencia());
         assertEquals(2,Nivel.getNivel());
 
-        onView(withId(R.id.lista)).perform(clickXY(250,250)).check(matches(isDisplayed()));
+        activityRule.getScenario().onActivity(main -> main.updateTask("** Ponerse la vacuna 0",1));
         assertEquals(200,Monedas.getMonedasUsuario());
         assertEquals(30, Nivel.getExperiencia());
         assertEquals(3,Nivel.getNivel());
 
-        onView(withId(R.id.lista)).perform(swipeUp());
 
         //El usuario tiene inmunidad completa, inmunidad == 3
         assertEquals(3,Vida.getInmunidadActual());
-        onView(withId(R.id.lista)).perform(clickXY(750,750)).check(matches(isDisplayed()));
+        activityRule.getScenario().onActivity(main -> main.updateTask("- Frotarme los ojos o llevarme las manos a la boca en la calle 0",10));
         assertEquals(200,Monedas.getMonedasUsuario());
         assertEquals(30,Nivel.getExperiencia());
         //Como el usuario es inmune por la haberse puesto la segunda dosis no pierde vida aunque
@@ -82,39 +82,12 @@ public class MainActivityInstrumentedTest {
         //El usuario a perdido un punto de inmunidad, inmunidad == 2
         assertEquals(2, Vida.getInmunidadActual());
 
-        onView(withId(R.id.lista)).perform(clickXY(950,950)).check(matches(isDisplayed()));
+        activityRule.getScenario().onActivity(main -> main.updateTask("- Estar con mis amigos sin mascarilla 0",11));
         assertEquals(200, Monedas.getMonedasUsuario());
         assertEquals(30, Nivel.getExperiencia());
         assertEquals(100, Vida.getVidaActual());
         assertEquals(1, Vida.getInmunidadActual());
 
         activityRule.getScenario().close();
-    }
-
-    public static ViewAction clickXY(final int x, final int y){
-        return new GeneralClickAction(
-                Tap.SINGLE,
-                new CoordinatesProvider() {
-                    @Override
-                    public float[] calculateCoordinates(View view) {
-
-                        final int[] screenPos = new int[2];
-                        view.getLocationOnScreen(screenPos);
-
-                        final float screenX = screenPos[0] + x;
-                        final float screenY = screenPos[1] + y;
-                        float[] coordinates = {screenX, screenY};
-
-                        return coordinates;
-                    }
-                },
-                Press.FINGER,
-                InputDevice.SOURCE_MOUSE,
-                MotionEvent.BUTTON_PRIMARY);
-    }
-
-    public static ViewAction swipeUp() {
-        return new GeneralSwipeAction(Swipe.FAST, GeneralLocation.BOTTOM_CENTER,
-                GeneralLocation.TOP_CENTER, Press.FINGER);
     }
 }

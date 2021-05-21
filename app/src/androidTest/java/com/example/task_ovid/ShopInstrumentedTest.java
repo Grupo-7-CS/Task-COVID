@@ -7,6 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.example.task_ovid.stats.Monedas;
+import com.example.task_ovid.stats.Vida;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,15 +40,11 @@ public class ShopInstrumentedTest {
     @Test
     public void ShopClickTest() {
         Monedas.setMonedasUsuario(1000);
-
-        shopRule.getScenario().recreate();
-
-        onView(withId(R.id.pocion1)).perform(click());
+        
+        shopRule.getScenario().onActivity(shop -> shop.pocima(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
         assertEquals(900,Monedas.getMonedasUsuario());
 
-        shopRule.getScenario().recreate();
-
-        onView(withId(R.id.pocion2)).perform(click());
+        shopRule.getScenario().onActivity(shop -> shop.pocimasuper(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
         assertEquals(600,Monedas.getMonedasUsuario());
 
     }
