@@ -52,6 +52,12 @@ public class MainActivityInstrumentedTest {
 
     @Test
     public void ItemClickTest() {
+        //Set up
+        Monedas.setMonedasUsuario(0);
+        Nivel.setNivelActual(1);
+        Nivel.setMaxExperiencia(100);
+        Nivel.setExperiencia(0);
+
         onView(withId(R.id.lista)).perform(clickXY(150,150));
         assertEquals(100,Monedas.getMonedasUsuario());
         //assertEquals(50,Nivel.getExperiencia());
