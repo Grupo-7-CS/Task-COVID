@@ -9,11 +9,11 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import com.example.task_ovid.stats.Monedas;
 import com.example.task_ovid.stats.Vida;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.assertEquals;
@@ -30,6 +30,12 @@ public class ShopInstrumentedTest {
     public ActivityScenarioRule<TiendaBeta> shopRule =
             new ActivityScenarioRule<>(TiendaBeta.class);
 
+    @Before
+    public void setUp(){
+        Vida.setVidaActual(50);
+        Monedas.setMonedasUsuario(1000);
+    }
+
     @Test
     public void useAppContext() {
         // Context of the app under test.
@@ -38,19 +44,20 @@ public class ShopInstrumentedTest {
     }
 
     @Test
-    public void ShopClickTest() {
-        //Set up
-        Vida.setVidaActual(50);
-        Monedas.setMonedasUsuario(1000);
+    public void PocimaClickTest() {
 
-        shopRule.getScenario().onActivity(shop -> shop.pocima(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
-        assertEquals(900,Monedas.getMonedasUsuario());
+        //Activamos la función pócima simulando que compramos una pócima
+        shopRule.getScenario().onActivity(shop -> shop.pocima(Vida.getVidaActual(), Vida.getMaxVida(), Monedas.getMonedasUsuario()));
+        //Comprobamos que resta correctamente las monedas
+        assertEquals(900, Monedas.getMonedasUsuario());
+    }
 
-        //Set up
-        Vida.setVidaActual(50);
-
+    @Test
+    public void PocimaSuperClickTest() {
+        //Activamos la función pócima super simulando que compramos una pócima
         shopRule.getScenario().onActivity(shop -> shop.pocimasuper(Vida.getVidaActual(),Vida.getMaxVida(),Monedas.getMonedasUsuario()));
-        assertEquals(600,Monedas.getMonedasUsuario());
+        //Comprobamos que resta correctamente las monedas
+        assertEquals(700,Monedas.getMonedasUsuario());
 
     }
 

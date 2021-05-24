@@ -21,6 +21,7 @@ import com.example.task_ovid.stats.Monedas;
 import com.example.task_ovid.stats.Nivel;
 import com.example.task_ovid.stats.Vida;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,6 +45,15 @@ public class MainActivityInstrumentedTest {
     public ActivityScenarioRule<MainActivity> activityRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
+    @Before
+    public void setUp() {
+        //Inicializamos valores
+        Monedas.setMonedasUsuario(0);
+        Nivel.setNivelActual(1);
+        Nivel.setMaxExperiencia(100);
+        Nivel.setExperiencia(0);
+    }
+
     @Test
     public void useAppContext() {
         // Context of the app under test.
@@ -52,42 +62,47 @@ public class MainActivityInstrumentedTest {
     }
 
     @Test
-    public void ItemClickTest() {
-        //Set up
-        Monedas.setMonedasUsuario(0);
-        Nivel.setNivelActual(1);
-        Nivel.setMaxExperiencia(100);
-        Nivel.setExperiencia(0);
+    public void ItemSecondDoseTest() {
 
-        activityRule.getScenario().onActivity(main -> main.updateTask("*** Ponerse la segunda dosis 0",0));
-        assertEquals(100,Monedas.getMonedasUsuario());
-        assertEquals(50,Nivel.getExperiencia());
-        assertEquals(2,Nivel.getNivel());
-
-        activityRule.getScenario().onActivity(main -> main.updateTask("** Ponerse la vacuna 0",1));
-        assertEquals(200,Monedas.getMonedasUsuario());
-        assertEquals(30, Nivel.getExperiencia());
-        assertEquals(3,Nivel.getNivel());
+        //Comprobamos el botón de ponerse la segunda dosis
+        activityRule.getScenario().onActivity(main -> main.updateTask("*** Ponerse la segunda dosis 0", 0));
+        //Comprobamos que las monedas son 100, hemos ganado 50 de experiencia y subido
+        //a nivel 2
+        assertEquals(100, Monedas.getMonedasUsuario());
+        assertEquals(50, Nivel.getExperiencia());
+        assertEquals(2, Nivel.getNivel());
+    }
 
 
-        //El usuario tiene inmunidad completa, inmunidad == 3
-        assertEquals(3,Vida.getInmunidadActual());
-        activityRule.getScenario().onActivity(main -> main.updateTask("- Frotarme los ojos o llevarme las manos a la boca en la calle 0",10));
-        assertEquals(200,Monedas.getMonedasUsuario());
-        assertEquals(30,Nivel.getExperiencia());
-        //Como el usuario es inmune por la haberse puesto la segunda dosis no pierde vida aunque
-        //haga una mala acción. Nota: la inmunidad te protege de tres malas acciones ya que se va
-        //gastando
-        assertEquals(100, Vida.getVidaActual());
-        //El usuario a perdido un punto de inmunidad, inmunidad == 2
-        assertEquals(2, Vida.getInmunidadActual());
+    @Test
+    public void ItemVaccineTest() {
+        //Comprobamos el botón de ponerse la segunda dosis
+        activityRule.getScenario().onActivity(main -> main.updateTask("** Ponerse la vacuna 0", 1));
+        //Comprobamos que las monedas son 100 y hemos subido
+        //a nivel 2
+        assertEquals(100, Monedas.getMonedasUsuario());
+        assertEquals(2, Nivel.getNivel());
 
+    }
+
+
+    @Test
+    public void ItemHandsOnEyesTest() {
+        //Comprobamos el botón de frotarse los ojos en la calle
+        activityRule.getScenario().onActivity(main -> main.updateTask("- Frotarme los ojos o llevarme las manos a la boca en la calle 0", 10));
+        //Comprobamos que no hemos ganado monedas y hemos perdido vida
+        assertEquals(0, Monedas.getMonedasUsuario());
+        assertEquals(75, Vida.getVidaActual());
+
+    }
+
+    @Test
+    public void ItemNoFacemaskTest() {
+
+        //Comprobamos el botón de estar sin mascarilla
         activityRule.getScenario().onActivity(main -> main.updateTask("- Estar con mis amigos sin mascarilla 0",11));
-        assertEquals(200, Monedas.getMonedasUsuario());
-        assertEquals(30, Nivel.getExperiencia());
-        assertEquals(100, Vida.getVidaActual());
-        assertEquals(1, Vida.getInmunidadActual());
-
-        activityRule.getScenario().close();
+        //Comprobamos que no hemos ganado monedas y hemos perdido vida
+        assertEquals(0, Monedas.getMonedasUsuario());
+        assertEquals(75, Vida.getVidaActual());
     }
 }
