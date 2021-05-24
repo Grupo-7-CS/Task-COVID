@@ -2,6 +2,7 @@ package com.example.task_ovid;
 
 import com.example.task_ovid.stats.Nivel;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,48 +11,50 @@ import static org.junit.Assert.assertEquals;
 
 public class SecondDoseSteps {
 
-    @Given("^the user is level one with 0 experience points$")
-    public void the_user_is_level_one_with_0_experience_points() throws Throwable {
-        Nivel.setExperiencia(0);
-        Nivel.setMaxExperiencia(100);
+    @Given("^el usuario es nivel 1$")
+    public void el_usuario_es_nivel_1() {
         Nivel.setNivelActual(1);
+        //Para que realmente sea de nivel 1 es necesario
+        //establecer la experiencia máxima a 100
+        Nivel.setMaxExperiencia(100);
     }
 
-    @Given("^the user is level two with 0 experience points$")
-    public void the_user_is_level_two_with_0_experience_points() throws Throwable {
-        Nivel.setExperiencia(0);
-        Nivel.setMaxExperiencia(120);
-        Nivel.setNivelActual(2);
-    }
-
-    @Given("^the user is level four with 0 experience points$")
-    public void the_user_is_level_dour_with_0_experience_points() throws Throwable {
-        Nivel.setExperiencia(0);
-        Nivel.setMaxExperiencia(160);
+    @Given("^el usuario es nivel 4$")
+    public void el_usuario_es_nivel_4() {
         Nivel.setNivelActual(4);
+        //Para que realmente sea de nivel 4 es necesario
+        //establecer la experiencia máxima a 160
+        Nivel.setMaxExperiencia(160);
     }
 
-    @When("^user presses second dose button$")
-    public void user_presses_second_dose_button() throws Throwable {
-        Nivel.incrementarExperiencia(false,false,true);
+    @When("^pulsa el boton de ponerse la segunda dosis$")
+    public void pulsa_el_boton_de_ponerse_la_segunda_dosis() {
+        Nivel.incrementarExperiencia(false, false, true);
     }
 
-    @Then("^user's experience increases by 150 and goes up to level 1, remaining at level 2 with 50 experience points\\.$")
-    public void users_experience_increases_by_150_and_goes_up_to_level_1_remaining_at_level_2_with_50_experience_points() throws Throwable {
-        assertEquals(2,Nivel.getNivel());
-        assertEquals(50,Nivel.getExperiencia());
+    @Then("^el usuario sube a nivel 2$")
+    public void el_usuario_sube_a_nivel_2() {
+        assertEquals(2, Nivel.getNivel());
     }
 
-    @Then("^user's experience increases by 150 and goes up to level 1, remaining at level 3 with 30 experience points\\.$")
-    public void users_experience_increases_by_150_and_goes_up_to_level_1_remaining_at_level_3_with_30_experience_points() throws Throwable {
-        assertEquals(3,Nivel.getNivel());
-        assertEquals(30,Nivel.getExperiencia());
+    @Then("^el usuario permanece a nivel 4$")
+    public void el_usuario_permanece_a_nivel_4() {
+        assertEquals(4, Nivel.getNivel());
+        ;
     }
 
-    @Then("^user's experience increases by 150, but since 160 points are needed to go up to level 5, the user remains at level 4\\.$")
-    public void users_experience_increases_by_150_but_since_160_points_are_needed_to_go_up_to_level_5_the_user_remains_at_level_4() throws Throwable {
-        assertEquals(4,Nivel.getNivel());
-        assertEquals(150,Nivel.getExperiencia());
+    @And("^tiene 0 puntos de experiencia$")
+    public void tiene_0_puntos_de_experiencia() {
+        Nivel.setExperiencia(0);
     }
 
+    @And("^se queda con 50 puntos de experiencia.$")
+    public void se_queda_con_50_puntos_de_experiencia() {
+        assertEquals(50, Nivel.getExperiencia());
+    }
+
+    @And("^tiene 150 puntos de experiencia$")
+    public void tiene_150_puntos_de_experiencia() {
+        assertEquals(150, Nivel.getExperiencia());
+    }
 }

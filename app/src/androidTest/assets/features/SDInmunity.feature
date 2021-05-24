@@ -1,23 +1,28 @@
-Feature:
-As 
+Feature: Inmunidad
+  As
 
-a user
+  un usuario
 
-I want
+  I want
 
-to gain immunity to the damage caused by doing three things wrong (not stackable) after getting the second dose of the vaccine.
+  ganar inmunidad después de recibir la segunda dosis
 
-So that
+  So that
 
-  Scenario:Immunity at work
-    Given The user has already taken the second dose, so he/she has 3 points of immunity.
-      And The user life is 100 points
-     When user presses the button 'olvidarse la mascarilla'
-     Then The user still has 100 health points and 2 immunity points left.
-  
-  Scenario:Immunity consumed
-    Given The user has already taken the second dose, so he/she has 3 points of immunity.
-      And The user life is 80 points
-      And The user resistence is 1
-     When user presses the button 'Salir de fiesta' four times
-     Then The user's life is reduced to 55 points and he is no longer immune.
+  pueda tener inmunidad a tres acciones erróneas
+
+  Scenario:Inmunidad activa
+    Given el usuario se ha puesto la segunda dosis de la vacuna (gana 3 puntos de inmunidad)
+    And tiene 100 puntos de vida
+    When pulsa el boton de 'olvidarse la mascarilla'
+    Then el usuario sigue teniendo 100 puntos de vida
+    And le quedan 2 puntos de inmunidad.
+
+  Scenario: Inmunidad consumida
+    Given el usuario se ha puesto la segunda dosis de la vacuna (gana 3 puntos de inmunidad)
+    And tiene 80 puntos de vida
+    And tiene 1 punto de resistencia
+    When pulsa 4 veces el boton de 'Salir de fiesta'
+    Then la vida del usuario se reduce a 55 puntos
+    And tiene 0 puntos de inmunidad.
+

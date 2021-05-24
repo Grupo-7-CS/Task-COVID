@@ -1,25 +1,22 @@
-Feature:
-As 
+Feature: Segunda Dosis
+  As
 
-a user
+  un usuario
 
-I want
+  I want
 
-to be able to press the second dose of the vaccine button and have my experience points increase by 150.
+  poder pulsar el botón de la segunda dosis de la vacuna y que mis puntos de experiencia aumenten en 150.
 
-So that
+  Scenario: Subir de nivel si se ha alcanzado la experiencia necesaria al ponerse la segunda dosis
+    Given el usuario es nivel 1
+    And tiene 0 puntos de experiencia
+    When pulsa el boton de ponerse la segunda dosis
+    Then el usuario sube a nivel 2
+    And se queda con 50 puntos de experiencia.
 
-  Scenario:The user is level one when the button is pressed
-    Given the user is level one with 0 experience points
-     When user presses second dose button
-     Then user's experience increases by 150 and goes up to level 1, remaining at level 2 with 50 experience points.
-  
-  Scenario:The user is level two when the button is pressed
-    Given the user is level two with 0 experience points
-     When user presses second dose button
-     Then user's experience increases by 150 and goes up to level 1, remaining at level 3 with 30 experience points.
-  
-  Scenario:The user is level four when the button is pressed
-    Given the user is level four with 0 experience points
-     When user presses second dose button
-     Then user's experience increases by 150, but since 160 points are needed to go up to level 5, the user remains at level 4.
+  Scenario: No subir de nivel al ponerse la segunda dosis ya que no se ha alcanzado la experiencia necesaria
+    Given el usuario es nivel 4
+    And tiene 0 puntos de experiencia
+    When pulsa el boton de ponerse la segunda dosis
+    Then el usuario permanece a nivel 4
+    And tiene 150 puntos de experiencia

@@ -13,48 +13,56 @@ import static org.junit.Assert.assertEquals;
 
 public class SDInmunitySteps {
 
-    @Given("^The user has already taken the second dose, so he/she has 3 points of immunity.$")
-    public void the_user_has_already_taken_the_second_dose() throws Throwable {
+    @Given("el usuario se ha puesto la segunda dosis de la vacuna \\(gana {int} puntos de inmunidad)")
+    public void el_usuario_se_ha_puesto_la_segunda_dosis_de_la_vacuna_gana_puntos_de_inmunidad(int arg0) {
         Vida.activarInmunidad();
     }
 
-    @And("^The user life is 100 points$")
-    public void the_user_life_is_100_points() throws Throwable {
-        Vida.setVidaActual(100);
-    }
-
-    @And("^The user life is 80 points$")
-    public void the_user_life_is_80_points() throws Throwable {
-        Vida.setVidaActual(80);
-    }
-
-    @And("^The user resistence is 1$")
-    public void the_user_resistence_is_1() throws Throwable {
-        Resistencia.setResistenciaActual(1);
-    }
-
-    @When("^user presses the button 'olvidarse la mascarilla'$")
-    public void user_presses_the_button_olvidarse_la_mascarilla() throws Throwable {
+    @When("^pulsa el boton de 'olvidarse la mascarilla'$")
+    public void pulsa_el_boton_de_olvidarse_la_mascarilla() {
         Vida.decrementarVida();
     }
 
-    @When("^user presses the button 'Salir de fiesta' four times$")
-    public void user_presses_the_button_salir_de_fiesta_four_times() throws Throwable {
+    @When("^pulsa 4 veces el boton de 'Salir de fiesta'$")
+    public void pulsa_4_veces_el_boton_de_salir_de_fiesta() {
         for (int i = 0; i < 4; i++) {
             Vida.decrementarVida();
         }
     }
 
-    @Then("^The user still has 100 health points and 2 immunity points left.$")
-    public void user_life_is_still_100_points() throws Throwable {
-        assertEquals(100,Vida.getVidaActual());
-        assertEquals(2,Vida.getInmunidadActual());
+    @Then("^el usuario sigue teniendo 100 puntos de vida$")
+    public void el_usuario_sigue_teniendo_100_puntos_de_vida() {
+        assertEquals(100, Vida.getVidaActual());
     }
 
-    @Then("^The user's life is reduced to 55 points and he is no longer immune.$")
-    public void user_life_is_reduced_to_55_points() throws Throwable {
-        assertEquals(55,Vida.getVidaActual());
-        assertEquals(0,Vida.getInmunidadActual());
+    @Then("^la vida del usuario se reduce a 55 puntos$")
+    public void la_vida_del_usuario_se_reduce_a_55_puntos() {
+        assertEquals(55, Vida.getVidaActual());
+    }
+
+    @And("^tiene 100 puntos de vida$")
+    public void tiene_100_puntos_de_vida() {
+        Vida.setVidaActual(100);
+    }
+
+    @And("^le quedan 2 puntos de inmunidad.$")
+    public void le_quedan_2_puntos_de_inmunidad() {
+        assertEquals(2, Vida.getInmunidadActual());
+    }
+
+    @And("^tiene 80 puntos de vida$")
+    public void tiene_80_puntos_de_vida() {
+        Vida.setVidaActual(80);
+    }
+
+    @And("^tiene 1 punto de resistencia$")
+    public void tiene_1_punto_de_resistencia() {
+        Resistencia.setResistenciaActual(1);
+    }
+
+    @And("^tiene 0 puntos de inmunidad.$")
+    public void tiene_0_puntos_de_inmunidad() throws Throwable {
+        assertEquals(0, Vida.getInmunidadActual());
     }
 
 }
